@@ -1,0 +1,21 @@
+name: snk-gen
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+jobs:
+  build-img-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: Platane/snk/svg-only@v2
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            imgs/github-snake.svg
+      - name: push
+        uses: actions-go/push@master
+        with:
+          author-email: taromati2@foxmail.com
+          author-name: Taromati2
+          commit-message: 'files update~'
