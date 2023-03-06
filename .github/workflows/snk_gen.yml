@@ -13,6 +13,7 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             imgs/github-snake.svg
+            imgs/github-snake-dark.svg?palette=github-dark
       - name: push
         uses: actions-go/push@master
         with:
